@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400&family=Athiti:wght@300&family=BIZ+UDPGothic&family=Joan&family=Montserrat:ital,wght@0,400;1,200;1,300&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
+
+/*
+font-family: 'Arvo', serif;
+font-family: 'Joan', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Philosopher', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'BIZ UDPGothic', sans-serif;
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+.nav ul {
+    margin: 2.5%;
+    margin-left: -3.2em;
+    margin-bottom: -0.5em;
+}
+.nav li {
+    display: inline-block;
+    padding: 0;
+}
+.nav a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: black;
+    padding: 1em;
+    text-decoration: none;
+}
+
+.h-tab a {
+    color: white;
+    background-color: rgb(2, 60, 2);
+    
+}
+.nav a:hover {
+    background-color: rgb(2, 60, 2);
+    color: white;
+}
+
+.nav-email a {
+    color: rgb(2, 60, 2);
+    text-decoration: none;
+}
+.nav-email a:hover {
+    color: blue;
+    background-color: transparent;
+}
+.nav {
+    text-align: left;
+    font-size: 0.9em;
+    border-bottom: 2px solid rgb(2, 60, 2) ;
+}
+html, body { 
+    margin: 1in;
+    margin-top: 0in;
+    padding: 0;
+}
+.subtitle1 {
+    padding-top: 2%;
+    text-align: left;
+    margin: 0;
+    font-family: 'BIZ UDPGothic', sans-serif;
+}
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: smaller;
+    color: darkslategray;
+    text-align: center;
+    border-color: transparent;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.btn:hover {
+    color: green;
+    background-color: rgba(14, 138, 70, 0.189);
+}
+.class-row {
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5em;
+    padding-top:0.5em
+}
+.tour-item {
+    padding-right:1em;
+}
+.more-work li {
+    display: inline-block;
+}
+.more-work ul {
+    margin-left: -2.5em;
+}
+.notes-button {
+    font-size: medium;
+    color: rgb(253, 55, 167);
+    background-color: rgb(255, 232, 235);
+}
+.hw-button {    
+    font-size: medium;
+    color:rgb(0, 106, 255);
+    background-color: rgba(0, 110, 255, 0.144);
+}
+.exam-review-button {
+    font-size: medium;
+    color: rgb(129, 56, 255);
+    background-color: rgba(101, 12, 246, 0.078);
+}
