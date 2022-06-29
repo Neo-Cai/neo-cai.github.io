@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Neo Cai - Computer Science 1</title>
+        <meta name="description" content="Computer Science 1 Course Work">
+        <link rel="stylesheet" href="style.css">
+        <link href="prism.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="Resume.html" target="blank">RESUME</a></li>
+                    <li><a href="https://drive.google.com/drive/folders/1IpuSzO9AuUdpnZ5P5NzctOcHRXoszcIw?usp=sharing" target="blank">GOOGLE DRIVE</a></li>
+                    <li><a href="https://journeys.dartmouth.edu/neoycai25/" target="blank">DARTMOUTH BLOG</a></li>
+                    <li class = "nav-email"><h4><a href="mailto:neo.y.cai.25@dartmouth.edu">@ neo.y.cai.25@dartmouth.edu</a></h4></li>
+                </ul>
+            </nav>
+                <h1 class="subtitle1">Introduction to Programming and Computation</h1>
+        </header>
+        <section>
+            <h2>SYLLABUS</h2>
+            <ul>
+                <li>Functions, Abstraction, Variables</li>
+                <li>Loops, If Conditions</li>
+                <li>Return Values, Functions as Parameters</li>
+                <li>Animation, Keyboard and Mouse inputs</li>
+                <li>Lists and For Loops</li>
+                <li>Nested Loops</li>
+                <li>Physical Modeling</li>
+                <li>Recursion</li>
+                <li>Sorting</li>
+                <li>Reading/Writing Files</li>
+                <li>Runtime Complexity, Analyzing Algorithms</li>
+                <li>Stacks, Queues, Dictionaries, linked Lists, Graphs</li>
+                <li>Breadth First Search</li>
+            </ul>
+            <h2>SAMPLE WORK</h2>
+            Course work consisted of short coding assignments and longer problems set labs that implored multiple skills over the course. Here are some example problems from <i>Prof. Devin Balkcom @ Dartmouth</i>
+
+            <br><br>
+            <h3><strong>Short Assignment Example</strong></h3>
+            <p>
+                <strong>Problem:</strong> "I've written some code below to simulate a deck of cards. There are four suits of cards: clubs, spades, diamonds, and hearts. In each suit, there are 13 card values: cards with numbers 1 through 10, the Jack (11), the Queen (12), and the King (13). A standard deck has 52 cards: one of each value, for each suit. (We ignore the Joker.)"
+            </p>
+            <p>
+                <b>Write two classes: the Card class, and the Deck class.</b> I wrote some simple code to test the classes. I've included the test code, but I have not given you the code for the classes. Write the classes so that my test code works, and so that the output is exactly as described in the comments of the test code.
+            </p>
+            <p>
+                <b>Given driver code:&ensp;</b><a href="CS1 - Code\SA7\card_deck_driver.py" download="card_deck_driver.py" target="blank"><button class="btn">Download</button></a></h4>
+                <pre><code class="language-python">
+                    card = Card(5, 1)
+                    # prints "5 of clubs"
+                    print(card)
+                    
+                    card = Card(12, 4)
+                    # prints "Queen of hearts"
+                    print(card)
+                    
+                    print("----")
+                    
+                    deck = Deck()
+                    # Add the 52 standard cards to the new deck
+                    deck.add_standard_cards()
+                    
+                    # Reorder the cards in the deck randomly.
+                    #  The shuffle method makes use of the randint function
+                    deck.shuffle()
+                    
+                    # Create a new tiny Deck of cards called hand, made up
+                    #   of the last five cards in deck.  The deal method should
+                    #   also remove those last five cards from "deck".
+                    hand = deck.deal(5)
+                    
+                    # print the cards in the hand
+                    # Note that the hand is not a list of cards, it is a reference of a Deck object.
+                    for card in hand.card_list:
+                        print(card)
+                    
+                    print("----")
+                    
+                    # print the remaining cards in the deck
+                    for card in deck.card_list:
+                        print(card)
+                </code></pre>
+            </p>
+                <h4><strong>Card Class Solution&ensp;</strong><a href="CS1 - Code\SA7\card.py" download="card.py" target="blank"><button class="btn">Download</button></a></h4>
+                <div><pre><code class="language-python">
+                    # Author: Neo Cai
+                    # Date: 02/8/22
+                    # File Name: card.py
+                    # Course: Computer Science 1
+                    # Purpose: Card class creates a card with corresponding numbers and suits
+
+                    class Card:
+                        # Constructor initializes the number and suit of the card
+                        def __init__(self, number, suit):
+                            self.number_int = number
+                            self.suit_int = suit
+
+                        # Method that sorts the suit value into a suit name instead
+                        def suit(self):
+                            if self.suit_int == 1:
+                                return "clubs"
+                            elif self.suit_int == 2:
+                                return "spades"
+                            elif self.suit_int == 3:
+                                return "diamonds"
+                            elif self.suit_int == 4:
+                                return "hearts"
+
+                        # Method that sorts the card number to card name instead, so 1 = Ace, 13 = King
+                        def value(self):
+                            if 11 &#60;= self.number_int &#60;= 13:
+                                if self.number_int == 11:
+                                    return "Jack"
+                                elif self.number_int == 12:
+                                    return "Queen"
+                                elif self.number_int == 13:
+                                    return "King"
+                            elif self.number_int == 1:
+                                return "Ace"
+                            else:
+                                return str(self.number_int)
+
+                        # Method that returns the string name of the card, concatenates the value and suit
+                        def __str__(self):
+                            return self.value() + " of " + self.suit()
+                </code></pre></div>
+
+                <h4><strong>Deck Class Solution&ensp;</strong><a href="CS1 - Code\SA7\deck.py" download="deck.py" target="blank"><button class="btn">Download</button></a></h4>            
+                <div><pre><code class="language-python">
+                    # Author: Neo Cai
+                    # Date: 02/8/22
+                    # File Name: deck.py
+                    # Course: Computer Science 1
+                    # Purpose: Create a deck of cards from
+                     the card class and some functions to play with the deck
+
+                    from card import Card
+                    from random import randint
+
+
+                    class Deck:
+                        # Constructor that initializes a card list
+                        def __init__(self):
+                            self.card_list = []
+
+                        # Method creates a deck of cards (52 cards because there are no jokers)
+                        def add_standard_cards(self):
+                            for i in range(1, 5):  # nested loop starts going through every suit
+                                for j in range(1, 14):  # then adds numbers for each suit
+                                    self.card_list.append(Card(j, i))  # appends the suit-number pair
+
+                        # Method shuffles the deck by taking an indexed card and swapping it with another random card
+                        def shuffle(self):
+                            for i in range(len(self.card_list)):
+                                rand_index = randint(0, len(self.card_list) - 1)
+                                temp = self.card_list[i]  # stores indexed card
+                                self.card_list[i] = self.card_list[rand_index]  # assigns indexed card with random card
+                                self.card_list[rand_index] = temp  # completes the swap
+
+                        # Method takes the last card of the deck and stores it, then deletes the last index of the deck
+                        def pop(self):
+                            indexed_card = self.card_list[len(self.card_list) - 1]  # stores card
+                            del self.card_list[len(self.card_list) - 1]  # deletes index
+                            return indexed_card  # returns it for use in deal method
+
+                        # Method deals a hand of a given size
+                        def deal(self, number):
+                            hand = Deck() # creates a new deck
+                            for i in range(number):
+                                hand.card_list.append(self.pop())  # adds the indexed card (last card in deck) to hand
+                            return hand  # returns hand to be used
+                </code></pre></div>
+            </p>
+            <p>
+                <h3><strong>Another Fun Short Assignment Game on My Blog</strong></h3>
+                <a href="https://journeys.dartmouth.edu/neoycai25/2022/03/04/a-story-about-a-cat-in-a-box/" target="blank"><button class="btn">Cat in a Box Story</button></a>
+            </p>
+            <br>
+            <p>
+                <h3>Problem Set Example</h3>
+                <span>While short assignments were smaller projects meant to exercise a particular skill, problem sets tested a synthesis of skills.</span>
+                <br><br>
+
+                <div><b>Problem: </b>Given a map of the Dartmouth campus and a text file of dartmouth campus locations, create a program to that establishes the shortest path from one campus location to another.</div>
+                <br>
+                
+                <img src="CS1 - Code\PS4\dartmouth_map.png" alt="Dartmouth Campus Map" class="campus-map-img">
+                <br>
+
+                <div>Download:&ensp;<a href="CS1 - Lab 4 dartmouth_map.png" download="CS1 - Lab 4 dartmouth_map.png" target="blank"><button class="btn">Map</button></a>&ensp;<a href="CS1 - Code\PS4\dartmouth_graph.txt" download="CS1 - Lab 4 vertices.txt" target="blank"><button class="btn">Campus Locations</button></a>&ensp;<a href="CS1 - Code\PS4\cs1lib.py" download="cs1lib.py" target="blank"><button class="btn">Graphics Library</button></a></div><br>
+
+                <div><b>Step 1: </b>Using the text file of campus locations and their coordinates, create a graph and a new text file of vertices.</div>
+
+                <h4><strong>Graph Loader Solution:&ensp;</strong><a href="CS1 - Code\PS4\load_graph.py" download="load_graph.py" target="blank"><button class="btn">Graph Loader</button></a>&ensp;</strong><a href="CS1 - Code\PS4\vertices.txt" download="vertices.txt" target="blank"><button class="btn">Resulting Vertex File</button></a></h4> 
+
+                <div><pre><code class="language-python">
+                    # Author: Neo Cai
+                    # Date: 03/06/22
+                    # File Name: load_graph.py
+                    # Course: Computer Science 1
+                    # Purpose: loads a graph of vertexes for campus locations
+                    
+                    from vertex import Vertex
+                    
+                    
+                    # helper function: given a line, parses the line and isolates variables (name, adjacency_list, coordinates)
+                    def parse_line(line):
+                        section_split = line.split(";")
+                        vertex_name = section_split[0].strip()
+                    
+                        adjacent_vertices = section_split[1].strip().split(",")
+                    
+                        adjacent = []
+                        for a in adjacent_vertices:
+                            if a:
+                                adjacent.append(a.strip())
+                    
+                        coordinates = section_split[2].strip().split(",")
+                    
+                        return vertex_name, adjacent, coordinates[0], coordinates[1]
+                    
+                    
+                    # given a file, returns a dictionary of vertices where the key is the name and value is the vertex object
+                    def load_graph(filename):
+                        vertex_dict = {}
+                    
+                        file = open(filename, "r")
+                    
+                        # first pass to just get the name and coordinates of vertexes
+                        for l in file:
+                    
+                            if len(l.split(";")) == 3:
+                                vertex_name, adjacent_vertices, x, y = parse_line(l)
+                                vertex_dict[vertex_name] = Vertex(vertex_name, [], x, y)
+                    
+                        file.close()
+                    
+                        file = open(filename, "r")
+                    
+                        # second pass creates adjacency list based on the vertices created in the first pass
+                        for l in file:
+                    
+                            if len(l.split(";")) == 3:
+                                vertex_name, adjacent_vertices, x, y = parse_line(l)
+                                adjacent_vertices_list = []
+                    
+                                for a in adjacent_vertices:
+                                    adjacent_vertices_list.append(vertex_dict[a])
+                    
+                                vertex_dict[vertex_name].adjacency_list = adjacent_vertices_list
+                    
+                        file.close()
+                    
+                        return vertex_dict
+                </code></pre></div>
+
+                <div><b>Step 2:</b> Write a Breadth First Search (BFS) Algorithm to find the shortest path between vertices.</div>
+                <h4><b>BFS Solution:&ensp;</b><a href="CS1 - Code\PS4\bfs.py" download="bfs.py" target="blank"><button class="btn">BFS Algorithm</button></a></h4>
+
+                    <div><pre><code class="language-python">
+                        # Author: Neo Cai
+                        # Date: 03/09/22
+                        # File Name: bfs.py
+                        # Course: Computer Science 1
+                        # Purpose: implements breadth first search given a start and a goal vertex
+
+
+                        from load_graph import load_graph
+                        from collections import deque
+
+                        # load the dartmouth map graph
+                        vertex_dict = load_graph("dartmouth_graph.txt")
+
+
+                        # given a start and a goal vertex object, implements breadth first search to return a list of vertices to create a path
+                        def bfs(start, goal):
+                            # create to_explore queue
+                            to_explore = deque([start])
+
+                            # create reached_from dictionary
+                            reached_from = {start: None}
+
+                            while len(reached_from) &#60;= len(vertex_dict):
+
+                                current = to_explore.popleft()
+
+                                # if the goal is found
+                                if current == goal:
+                                    # begin back tracing
+                                    backtrace_list = [goal]
+
+                                    while reached_from[current] is not None:
+                                        backpointer = reached_from[current]
+                                        backtrace_list.append(backpointer)
+                                        current = backpointer
+
+                                    backtrace_list.reverse()
+
+                                    return backtrace_list
+
+                                # else if not, append adjacent vertices to those that need to be explored
+                                for vertex in current.adjacency_list:
+                                    if vertex not in reached_from:
+                                        to_explore.append(vertex)
+                                        reached_from[vertex] = current
+                    </code></pre></div><br>
+
+                <div><b>Step 3:</b> Write the graphical user interface</div>
+                <h4><b>Graphics Solution:&ensp;</b><a href="CS1 - Code\PS4\map_plot.py" download="map_plot.py" target="blank"><button class="btn">Graphics Program</button></a></h4>
+
+                    <div><pre><code class="language-python">
+                        # Author: Neo Cai
+                        # Date: 03/09/22
+                        # File Name: map_plot.py
+                        # Course: Computer Science 1
+                        # Purpose: runs a map that uses breadth first search to determine a path from a start to a goal
+
+                        from cs1lib import *
+                        from load_graph import load_graph
+                        from bfs import bfs
+
+                        # initializing global variables
+                        WINDOW_X = 1012
+                        WINDOW_Y = 811
+
+                        # initialize booleans for things that need to be drawn
+                        image_drawn = False
+                        map_drawn = False
+                        path_complete = True
+
+
+                        # load image and graph
+                        vertex_dict = load_graph("dartmouth_graph.txt")
+                        map = load_image("dartmouth_map.png")
+
+                        # initialize start and goal vertices
+                        start = None
+                        goal = None
+
+
+                        # given mouse location, determined if start is selected
+                        def my_mpressed(mx, my):
+                            global start, map_drawn
+
+                            for a_vertex in vertex_dict.values():
+
+                                if a_vertex.is_under(mx, my):
+                                    start = a_vertex
+                                    a_vertex.draw_vertex(1, 0, 0)
+
+                                else:
+                                    map_drawn = 0
+
+
+                        # given mouse location, determine where the goal vertex is
+                        def my_mlocation(mx, my):
+                            global goal
+
+                            for a_vertex in vertex_dict.values():
+
+                                if start is not None and a_vertex.is_under(mx, my):
+                                    goal = a_vertex
+
+
+                        # runs the breath first search function to figure out the best path
+                        def run_bfs():
+                            global map_drawn, path_complete
+
+                            if start is not None and goal is not None:
+
+                                current_path = bfs(start, goal)
+
+                                if path_complete:
+                                    map_drawn = False
+                                    path_complete = False
+
+                                if not path_complete:
+                                    old_vertex = start
+
+                                    for a_vertex in current_path[1:]:
+                                        a_vertex.draw_vertex(1, 0, 0)
+                                        a_vertex.draw_edge(old_vertex, 1, 0, 0)
+                                        old_vertex = a_vertex
+
+                                    path_complete = True
+
+
+                        # draws the map of vertices and edges
+                        def draw_map():
+                            for vertex in vertex_dict.values():
+                                vertex.draw_vertex(0, 0, 1)
+                                vertex.draw_adjacent_edges(0, 0, 1)
+
+                                if start is not None:
+                                    start.draw_vertex(1, 0, 0)
+
+
+                        # runs the map and its features
+                        def run_map():
+                            global image_drawn, map_drawn
+
+                            if not image_drawn:
+                                draw_image(map, 0, 0)
+                                image_drawn = True
+
+                            if not map_drawn:
+                                draw_map()
+                                map_drawn = True
+
+                            run_bfs()
+
+
+                        start_graphics(run_map, mouse_move=my_mlocation, mouse_press=my_mpressed, width=WINDOW_X, height=WINDOW_Y)
+
+                    </code></pre></div>
+
+                    <div><b>Output:</b> Video demonstration of the map in action!</div><br>
+                    <video controls class="campus-demo">
+                        <source src="CS1 - Code\PS4\PS4Demo.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video>
+            </p>
+        </section>
+        <footer class="more-work">
+        <h2>MORE WORK</h2>
+            <span>Find more of my work in my google drive:</span>
+            <ul>
+                <li><a href="https://drive.google.com/drive/folders/1DIi8nR92JHnhJWDTTaWvXM5-zd_2W4ge?usp=sharing" target="blank"><button class="notes-button btn">Notes</button></a></li>
+                <li><a href="https://drive.google.com/drive/folders/1l7u1fiyOqJSao9IE96LItS_v6joDF0sx?usp=sharing" target="blank"><button class="btn hw-button">Problem Sets</button></a></li>
+                <li><a href="https://drive.google.com/drive/folders/1snWjfEIl4poKZFCFocSapkorWUKdKRFX?usp=sharing" target="blank"><button class="btn hw-button">Short Assignments</button></a></li>
+                <li><a href="https://drive.google.com/drive/folders/1wzZiFmftN0aNXQ0V-TmEb8udfxbyWJR4?usp=sharing" target="blank"><button class="btn exam-review-button">Exam Review</button></a></li>
+            </ul>
+        </footer>
+        <script src="prism.js"></script>
+    </body>
