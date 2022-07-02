@@ -14,14 +14,16 @@
                     <li><a href="Resume.html" target="blank">RESUME</a></li>
                     <li><a href="https://drive.google.com/drive/folders/1IpuSzO9AuUdpnZ5P5NzctOcHRXoszcIw?usp=sharing" target="blank">GOOGLE DRIVE</a></li>
                     <li><a href="https://journeys.dartmouth.edu/neoycai25/" target="blank">DARTMOUTH BLOG</a></li>
-                    <li class = "nav-email"><h4><a href="mailto:neo.y.cai.25@dartmouth.edu">@ neo.y.cai.25@dartmouth.edu</a></h4></li>
+                    <li class = "nav-link"><h4><a href="mailto:neo.y.cai.25@dartmouth.edu">@ neo.y.cai.25@dartmouth.edu</a></h4></li>
                 </ul>
             </nav>
                 <h1 class="subtitle1">Introduction to Programming and Computation</h1>
         </header>
+    
         <section>
             <h2>SYLLABUS</h2>
             <ul>
+                <li><b>PYTHON</b></li>
                 <li>Functions, Abstraction, Variables</li>
                 <li>Loops, If Conditions</li>
                 <li>Return Values, Functions as Parameters</li>
@@ -36,168 +38,46 @@
                 <li>Stacks, Queues, Dictionaries, linked Lists, Graphs</li>
                 <li>Breadth First Search</li>
             </ul>
+        </section>
+        <section>
             <h2>SAMPLE WORK</h2>
-            Course work consisted of short coding assignments and longer problems set labs that implored multiple skills over the course. Here are some example problems from <i>Prof. Devin Balkcom @ Dartmouth</i>
+            Course work consisted of short coding assignments and longer problems set labs that implored multiple skills over the course. Here are some example problems from <span class="nav-link"></span><a href="https://web.cs.dartmouth.edu/people/devin-j-balkcom" target="blank"><i>Prof. Devin Balkcom @ Dartmouth</i></a></span>
 
-            <br><br>
-            <h3><strong>Short Assignment Example</strong></h3>
-            <p>
-                <strong>Problem:</strong> "I've written some code below to simulate a deck of cards. There are four suits of cards: clubs, spades, diamonds, and hearts. In each suit, there are 13 card values: cards with numbers 1 through 10, the Jack (11), the Queen (12), and the King (13). A standard deck has 52 cards: one of each value, for each suit. (We ignore the Joker.)"
-            </p>
-            <p>
-                <b>Write two classes: the Card class, and the Deck class.</b> I wrote some simple code to test the classes. I've included the test code, but I have not given you the code for the classes. Write the classes so that my test code works, and so that the output is exactly as described in the comments of the test code.
-            </p>
-            <p>
-                <b>Given driver code:&ensp;</b><a href="CS1-Code\SA7\card_deck_driver.py" download="card_deck_driver.py" target="blank"><button class="btn">Download</button></a></h4>
-                <pre><code class="language-python">
-                    card = Card(5, 1)
-                    # prints "5 of clubs"
-                    print(card)
-                    
-                    card = Card(12, 4)
-                    # prints "Queen of hearts"
-                    print(card)
-                    
-                    print("----")
-                    
-                    deck = Deck()
-                    # Add the 52 standard cards to the new deck
-                    deck.add_standard_cards()
-                    
-                    # Reorder the cards in the deck randomly.
-                    #  The shuffle method makes use of the randint function
-                    deck.shuffle()
-                    
-                    # Create a new tiny Deck of cards called hand, made up
-                    #   of the last five cards in deck.  The deal method should
-                    #   also remove those last five cards from "deck".
-                    hand = deck.deal(5)
-                    
-                    # print the cards in the hand
-                    # Note that the hand is not a list of cards, it is a reference of a Deck object.
-                    for card in hand.card_list:
-                        print(card)
-                    
-                    print("----")
-                    
-                    # print the remaining cards in the deck
-                    for card in deck.card_list:
-                        print(card)
-                </code></pre>
-            </p>
-                <h4><strong>Card Class Solution&ensp;</strong><a href="CS1-Code\SA7\card.py" download="card.py" target="blank"><button class="btn">Download</button></a></h4>
-                <div><pre><code class="language-python">
-                    # Author: Neo Cai
-                    # Date: 02/8/22
-                    # File Name: card.py
-                    # Course: Computer Science 1
-                    # Purpose: Card class creates a card with corresponding numbers and suits
+        <div class="more-work">
+            <ul>
+                <li>Quick Scroll To Highlights: </li>
+                <li><button class="BFS scroll-btn btn">Breadth First Search</button></li>
+                <li><button class="GT scroll-btn btn">Basic Graph Traversal</button></a></li>
+                <li><button class="OOP scroll-btn btn">Object Oriented Programming</button></li>
+            </ul>
+        </div>
 
-                    class Card:
-                        # Constructor initializes the number and suit of the card
-                        def __init__(self, number, suit):
-                            self.number_int = number
-                            self.suit_int = suit
+            <section>
+                <h3 id="BFS">The Busy-Person's Fastest Way From My Dorm to My Gym</h3> 
+                <p class="highlight-body">
+                    <b>Highlight:</b> Using <b>Breadth First Search</b>, this problem challenges us to figure out how to <b>parse data, clean that data, and use it in a graphical interface</b> to find the fastest route from A to B.
+                </p><br>
+                <div><b>Problem: </b> I walk a lot. Not because of the gym but because of the walk <i>to</i> the gym. I used to walk to the gym the same way everyone else does. This was a rough sketch of my route: </div>
 
-                        # Method that sorts the suit value into a suit name instead
-                        def suit(self):
-                            if self.suit_int == 1:
-                                return "clubs"
-                            elif self.suit_int == 2:
-                                return "spades"
-                            elif self.suit_int == 3:
-                                return "diamonds"
-                            elif self.suit_int == 4:
-                                return "hearts"
-
-                        # Method that sorts the card number to card name instead, so 1 = Ace, 13 = King
-                        def value(self):
-                            if 11 &#60;= self.number_int &#60;= 13:
-                                if self.number_int == 11:
-                                    return "Jack"
-                                elif self.number_int == 12:
-                                    return "Queen"
-                                elif self.number_int == 13:
-                                    return "King"
-                            elif self.number_int == 1:
-                                return "Ace"
-                            else:
-                                return str(self.number_int)
-
-                        # Method that returns the string name of the card, concatenates the value and suit
-                        def __str__(self):
-                            return self.value() + " of " + self.suit()
-                </code></pre></div>
-
-                <h4><strong>Deck Class Solution&ensp;</strong><a href="CS1-Code\SA7\deck.py" download="deck.py" target="blank"><button class="btn">Download</button></a></h4>            
-                <div><pre><code class="language-python">
-                    # Author: Neo Cai
-                    # Date: 02/8/22
-                    # File Name: deck.py
-                    # Course: Computer Science 1
-                    # Purpose: Create a deck of cards from
-                     the card class and some functions to play with the deck
-
-                    from card import Card
-                    from random import randint
-
-
-                    class Deck:
-                        # Constructor that initializes a card list
-                        def __init__(self):
-                            self.card_list = []
-
-                        # Method creates a deck of cards (52 cards because there are no jokers)
-                        def add_standard_cards(self):
-                            for i in range(1, 5):  # nested loop starts going through every suit
-                                for j in range(1, 14):  # then adds numbers for each suit
-                                    self.card_list.append(Card(j, i))  # appends the suit-number pair
-
-                        # Method shuffles the deck by taking an indexed card and swapping it with another random card
-                        def shuffle(self):
-                            for i in range(len(self.card_list)):
-                                rand_index = randint(0, len(self.card_list) - 1)
-                                temp = self.card_list[i]  # stores indexed card
-                                self.card_list[i] = self.card_list[rand_index]  # assigns indexed card with random card
-                                self.card_list[rand_index] = temp  # completes the swap
-
-                        # Method takes the last card of the deck and stores it, then deletes the last index of the deck
-                        def pop(self):
-                            indexed_card = self.card_list[len(self.card_list) - 1]  # stores card
-                            del self.card_list[len(self.card_list) - 1]  # deletes index
-                            return indexed_card  # returns it for use in deal method
-
-                        # Method deals a hand of a given size
-                        def deal(self, number):
-                            hand = Deck() # creates a new deck
-                            for i in range(number):
-                                hand.card_list.append(self.pop())  # adds the indexed card (last card in deck) to hand
-                            return hand  # returns hand to be used
-                </code></pre></div>
-            </p>
-            <p>
-                <h3><strong>Another Fun Short Assignment Game on My Blog</strong></h3>
-                <a href="https://journeys.dartmouth.edu/neoycai25/2022/03/04/a-story-about-a-cat-in-a-box/" target="blank"><button class="btn">Cat in a Box Story</button></a>
-            </p>
-            <br>
-            <p>
-                <h3>Problem Set Example</h3>
-                <span>While short assignments were smaller projects meant to exercise a particular skill, problem sets tested a synthesis of skills.</span>
-                <br><br>
-
-                <div><b>Problem: </b>Given a map of the Dartmouth campus and a text file of dartmouth campus locations, create a program to that establishes the shortest path from one campus location to another.</div>
-                <br>
+                <img src="CS1-Code\PS4\OldMap.png" alt="old route" class="demo-img">
                 
-                <img src="CS1-Code\PS4\dartmouth_map.png" alt="Dartmouth Campus Map" class="campus-map-img">
-                <br>
-
+                <br><div>However, this took a long time and I wanted to know how I can shave a few minutes of my walk (maybe a secret pathway). So, given the previously displayed map of the Dartmouth campus and a text file of dartmouth campus locations, I created a program to that establishes the shortest path from one campus location to another.</div>
+                <p>Feel free to download the given files!</p>
                 <div>Download:&ensp;<a href="CS1-Code\PS4\darmouth_map.png" download="dartmouth_map.png" target="blank"><button class="btn">Map</button></a>&ensp;<a href="CS1-Code\PS4\dartmouth_graph.txt" download="CS1 - Lab 4 vertices.txt" target="blank"><button class="btn">Campus Locations</button></a>&ensp;<a href="CS1-Code\PS4\cs1lib.py" download="cs1lib.py" target="blank"><button class="btn">Graphics Library</button></a></div><br>
 
-                <div><b>Step 1: </b>Using the text file of campus locations and their coordinates, create a graph and a new text file of vertices.</div>
+                <div><b>Output:</b> This is a video demonstration of the working output finding the shortest path to the gym. Turns out I did find a shorter path! Although only by a minute or so. Still, it is valuable time for a busy person. Next I will take you through how I did this.</div><br>
+                    <video controls class="video-demo">
+                        <source src="CS1-Code\PS4\PS4Demo1.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video>
+                
+                <br><div><b>How I did this</div></b><br>
+
+                <div><b>Step 1: </b>The downloadable campus locations file contains a list of locations on campus. Each location is followed by its adjacent locations, and finally the coordinates of the current location. Using the text file of campus locations and their coordinates, I will create a graph and a new text file of vertices.</div>
 
                 <h4><strong>Graph Loader Solution:&ensp;</strong><a href="CS1-Code\PS4\load_graph.py" download="load_graph.py" target="blank"><button class="btn">Graph Loader</button></a>&ensp;</strong><a href="CS1-Code\PS4\vertices.txt" download="vertices.txt" target="blank"><button class="btn">Resulting Vertex File</button></a></h4> 
 
-                <div><pre><code class="language-python">
+                <div><pre><code class="language-python code-body">
                     # Author: Neo Cai
                     # Date: 03/06/22
                     # File Name: load_graph.py
@@ -258,10 +138,10 @@
                         return vertex_dict
                 </code></pre></div>
 
-                <div><b>Step 2:</b> Write a Breadth First Search (BFS) Algorithm to find the shortest path between vertices.</div>
+                <br><div><b>Step 2:</b> The fun part! In order to efficiently find the shortest path, I will write a Breadth First Search (BFS) Algorithm to find the shortest path between vertices. We need to use the load_graph code above to give the algorithm vertices to parse through</div>
                 <h4><b>BFS Solution:&ensp;</b><a href="CS1-Code\PS4\bfs.py" download="bfs.py" target="blank"><button class="btn">BFS Algorithm</button></a></h4>
 
-                    <div><pre><code class="language-python">
+                    <div><pre><code class="language-python code-body">
                         # Author: Neo Cai
                         # Date: 03/09/22
                         # File Name: bfs.py
@@ -309,10 +189,10 @@
                                         reached_from[vertex] = current
                     </code></pre></div><br>
 
-                <div><b>Step 3:</b> Write the graphical user interface</div>
+                <div><b>Step 3:</b> Write the graphical user interface. This is where the start and end will be inputed into the BFS algorithm such that it may run. We will select start by clicking on a vertex and then the BFS algorithm will automatically calculate the shortest path between start and whatever vertex the mouse is currently hovering over.</div>
                 <h4><b>Graphics Solution:&ensp;</b><a href="CS1-Code\PS4\map_plot.py" download="map_plot.py" target="blank"><button class="btn">Graphics Program</button></a></h4>
 
-                    <div><pre><code class="language-python">
+                    <div><pre><code class="language-python code-body">
                         # Author: Neo Cai
                         # Date: 03/09/22
                         # File Name: map_plot.py
@@ -416,14 +296,223 @@
 
                         start_graphics(run_map, mouse_move=my_mlocation, mouse_press=my_mpressed, width=WINDOW_X, height=WINDOW_Y)
 
+                    </code></pre></div><br>
+
+                    <div>And Wah-lah, I am now able to find my way to the gym faster.</div>
+                    <div>In summary, <i>I exercised less to exercise more</i></div>
+                    <div class="more-work">
+                        <ul>
+                            <li>Quick Scroll To More Highlights: </li>
+                            <li><button class="GT scroll-btn btn">Basic Graph Traversal</button></a></li>
+                            <li><button class="OOP scroll-btn btn">Object Oriented Programming</button></li>
+                        </ul>
+                    </div>
+            </section>
+            <section>
+                    <h3 id="GT"><strong>The Many Ways You Can Take Care of Shroedinger's Cat</strong></h3>
+                    <div><img src="CS1-Code\SA9\CatPeeker.jpg" width="100%"></div>
+                    <p>
+                        This is a short chose your own adventure story I made for my CS1 class. To play, <b>simply type the corresponding letter of your choice in the console.</b>
+
+                        For example, if the prompt is "<code class="language-python">do you a) eat food or b) drink water,</code>" you can just type "<code class="language-python">a</code>" to eat food.
+                    </p>
+                    <div class="highlight-body">
+                        <b>Highlight:</b> Using <b>Graph Traversal</b>, this problem challenges us to figure out how to <b>parse a file</b> not just in one direction but in multiple directions by taking advantage of graphs. Sprinkle in a little creativity and this problem also allows us to create some pretty fun stories!
+                    </div><br>
+
+                    <span>click <b>run</b></span>
+
+                    <iframe src="https://trinket.io/embed/python/9f5e58841b?outputOnly=true&runOption=run&showInstructions=true" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+                    <br><br>
+
+                    <b>Program Explained:</b> Similar to the map project above, this project traverses through a text file to establish adjacent vertices. It then allows user input to direct the traversal of the graph. The two parts to this program are 1. writing the story and 2. greating the interface to traverse the graph.<br><br>
+
+                    <b>Download Solution:&ensp;</b><a href="CS1-Code\SA9\adventure.py" download="adventure.py" target="blank"><button class="btn">Graph Traversing & Interface</button></a>&ensp;<a href="CS1-Code\SA9\story.txt" download="story.txt" target="blank"><button class="btn">Story File</button></a>&ensp;<a href="CS1-Code\SA9\vertex.py" download="vertex.py" target="blank"><button class="btn">Supplementary Vertex Class</button></a><br><br>
+                    
+
+                    <b>The Thought Experiment Explained:</b> (For those interested in the story beyond the code)<br>
+
+                    <p>For TLDR, <b>read bold</b></p>
+
+                    <p>I thought it would be interesting to base a choose your own adventure story on the fact that you can "cheat" in choose your own adventure games. From what I observed, <b>it is always in the curiosity of people to explore every possibility </b>of the story to figure out which one was the best one. </p>
+
+                    <p><b>So, in this story, I made exploring every possibility <em>the point </em>of the story.</b> </p>
+
+                    <p>If you don't know, <span class = "nav-link"><a href="https://en.wikipedia.org/wiki/Schr%C3%B6dinger%27s_cat">Schrodinger's cat</a></span> (which I may have spelled wrong in the code) is a thought experiment by Erwin Schrodinger created to demonstrate superposition. I am studying physics, but I don't know physics <em>that </em>well so, I'm just going to take the thought experiment's premise: <b>There is a cat in a box, </b>and you don't know what its state is. Its state can be dead or it's state can be alive. But, <b>as long as you don't open the box, can be dead <em>and </em>alive</b>. </p>
+
+                    <div><img src="CS1-Code\SA9\DeadAliveCat.png" class="deadalivecat-img" width="158" ALIGN="right"></figure></div>
+
+                    <p>Obviously, the story explores different scenarios in which,<b> in the story, you discover if the cat is alive <em>or</em> dead</b>... or alive <em>and </em>dead. <b>But </b>in some paths of the story, it is revealed to you or rather<b>, instead, you begin to realize that just as the cat can be alive or dead, you have chosen one out come over another outcome. </b></p>
+
+                    <p>YOU are simultaneously waiting 30 more minutes for the woman to come back <em>and</em> going to the cafe to look for her. <b>So, you are Schrodinger's cat. </b>You can exist in multiple states. One where you go to the cafe, the other where you wait, and another where you never begin to accept the task at all. </p>
+
+                    <p>And the box? Well, <b>the box is this story.</b> At first the box is unopened; the story is unexplored. ALL of the possibilities are simultaneously true. But at the same time as you are trying to figure out if the cat is alive or dead or even existent, you are also determining your own state of existence, where you are, and what "timeline" you go. </p>
+
+                    <p>And again, just as Schrodinger's cat can be either alive, dead, and non-existent, your ability to test every possible outcome means you can be with a living cat, a dead one, or a non-existent one all at the same time. <b>Cheating the story and backtracking <em>is</em> the simultaneous existence of every branch of the story.</b></p>
+
+                    <p>Btw, I don't know quantum physics (yet), I just took a phrase about Schrodinger and ran with it.</p>
+
+                    <div class="more-work">
+                        <ul>
+                            <li>Quick Scroll To More Highlights: </li>
+                            <li><button class="BFS scroll-btn btn">Breadth First Search</button></li>
+                            <li><button class="OOP scroll-btn btn">Object Oriented Programming</button></li>
+                        </ul>
+                    </div>
+
+            </section>
+            <section>
+                <h3 id="OOP"><strong>The Magic Trick of Making Cards and Decks</strong></h3> (Short Assignment Example)
+                <p>While magicians make cards and decks of cards dissapear, Python already does not have cards or decks. So before we do our magic card tricks, deal them, shuffle them, etc. we need to make the cards in the first place. This, is the "appearing" card trick.</p>
+                <p class="highlight-body">
+                    <b>Highlight:</b> to practice <b>object oriented programming,</b> We are given code that simulate actions in a deck of cards. You can say <code class="language-python">deck.shuffle</code> and the cards in the deck will shuffle. But! Python doesn't include a card class or a deck class. So, How do we make this code work? We need to write our own card and deck classses to create such objects.
+                </p>
+                <p>
+                    <b>Problem:</b> Here is some given code for us to dedeuce what the deck and card class needs. In each suit, there are 13 card values: cards with numbers 1 through 10, the Jack (11), the Queen (12), and the King (13). A standard deck has 52 cards: one of each value, for each suit. (We ignore the Joker.) Each of the actions are outlined in the comments of the given test code.
+                </p>
+                <p>
+                    <b>Given test code:&ensp;</b><a href="CS1-Code\SA7\card_deck_driver.py" download="card_deck_driver.py" target="blank"><button class="btn">Download</button></a></h4>
+                    <pre><code class="language-python code-body">
+                        card = Card(5, 1)
+                        # prints "5 of clubs"
+                        print(card)
+                        
+                        card = Card(12, 4)
+                        # prints "Queen of hearts"
+                        print(card)
+                        
+                        print("----")
+                        
+                        deck = Deck()
+                        # Add the 52 standard cards to the new deck
+                        deck.add_standard_cards()
+                        
+                        # Reorder the cards in the deck randomly.
+                        #  The shuffle method makes use of the randint function
+                        deck.shuffle()
+                        
+                        # Create a new tiny Deck of cards called hand, made up
+                        #   of the last five cards in deck.  The deal method should
+                        #   also remove those last five cards from "deck".
+                        hand = deck.deal(5)
+                        
+                        # print the cards in the hand
+                        # Note that the hand is not a list of cards, it is a reference of a Deck object.
+                        for card in hand.card_list:
+                            print(card)
+                        
+                        print("----")
+                        
+                        # print the remaining cards in the deck
+                        for card in deck.card_list:
+                            print(card)
+                    </code></pre>
+                </p>
+                <div><b>Output:</b> Video demonstration of the test code with working classes</div><br>
+                        <video controls class="video-demo">
+                            <source src="CS1-Code\SA7\video-demo-SA7.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+
+                    <h4><strong>Card Class Solution&ensp;</strong><a href="CS1-Code\SA7\card.py" download="card.py" target="blank"><button class="btn">Download</button></a></h4>
+                    <div><pre><code class="language-python code-body">
+                        # Author: Neo Cai
+                        # Date: 02/8/22
+                        # File Name: card.py
+                        # Course: Computer Science 1
+                        # Purpose: Card class creates a card with corresponding numbers and suits
+
+                        class Card:
+                            # Constructor initializes the number and suit of the card
+                            def __init__(self, number, suit):
+                                self.number_int = number
+                                self.suit_int = suit
+
+                            # Method that sorts the suit value into a suit name instead
+                            def suit(self):
+                                if self.suit_int == 1:
+                                    return "clubs"
+                                elif self.suit_int == 2:
+                                    return "spades"
+                                elif self.suit_int == 3:
+                                    return "diamonds"
+                                elif self.suit_int == 4:
+                                    return "hearts"
+
+                            # Method that sorts the card number to card name instead, so 1 = Ace, 13 = King
+                            def value(self):
+                                if 11 &#60;= self.number_int &#60;= 13:
+                                    if self.number_int == 11:
+                                        return "Jack"
+                                    elif self.number_int == 12:
+                                        return "Queen"
+                                    elif self.number_int == 13:
+                                        return "King"
+                                elif self.number_int == 1:
+                                    return "Ace"
+                                else:
+                                    return str(self.number_int)
+
+                            # Method that returns the string name of the card, concatenates the value and suit
+                            def __str__(self):
+                                return self.value() + " of " + self.suit()
                     </code></pre></div>
 
-                    <div><b>Output:</b> Video demonstration of the map in action!</div><br>
-                    <video controls class="campus-demo">
-                        <source src="CS1-Code\PS4\PS4Demo.mp4" type="video/mp4">
-                      Your browser does not support the video tag.
-                      </video>
-            </p>
+                    <h4><strong>Deck Class Solution&ensp;</strong><a href="CS1-Code\SA7\deck.py" download="deck.py" target="blank"><button class="btn">Download</button></a></h4>            
+                    <div><pre><code class="language-python code-body">
+                        # Author: Neo Cai
+                        # Date: 02/8/22
+                        # File Name: deck.py
+                        # Course: Computer Science 1
+                        # Purpose: Create a deck of cards from
+                        the card class and some functions to play with the deck
+
+                        from card import Card
+                        from random import randint
+
+
+                        class Deck:
+                            # Constructor that initializes a card list
+                            def __init__(self):
+                                self.card_list = []
+
+                            # Method creates a deck of cards (52 cards because there are no jokers)
+                            def add_standard_cards(self):
+                                for i in range(1, 5):  # nested loop starts going through every suit
+                                    for j in range(1, 14):  # then adds numbers for each suit
+                                        self.card_list.append(Card(j, i))  # appends the suit-number pair
+
+                            # Method shuffles the deck by taking an indexed card and swapping it with another random card
+                            def shuffle(self):
+                                for i in range(len(self.card_list)):
+                                    rand_index = randint(0, len(self.card_list) - 1)
+                                    temp = self.card_list[i]  # stores indexed card
+                                    self.card_list[i] = self.card_list[rand_index]  # assigns indexed card with random card
+                                    self.card_list[rand_index] = temp  # completes the swap
+
+                            # Method takes the last card of the deck and stores it, then deletes the last index of the deck
+                            def pop(self):
+                                indexed_card = self.card_list[len(self.card_list) - 1]  # stores card
+                                del self.card_list[len(self.card_list) - 1]  # deletes index
+                                return indexed_card  # returns it for use in deal method
+
+                            # Method deals a hand of a given size
+                            def deal(self, number):
+                                hand = Deck() # creates a new deck
+                                for i in range(number):
+                                    hand.card_list.append(self.pop())  # adds the indexed card (last card in deck) to hand
+                                return hand  # returns hand to be used
+                    </code></pre></div>
+                    <div class="more-work">
+                        <ul>
+                            <li>Quick Scroll To More Highlights: </li>
+                            <li><button class="BFS scroll-btn btn">Breadth First Search</button></li>
+                            <li><button class="GT scroll-btn btn">Basic Graph Traversal</button></a></li>
+                        </ul>
+                    </div>
+            </section>
+            <br>
         </section>
         <footer class="more-work">
         <h2>MORE WORK</h2>
@@ -434,6 +523,31 @@
                 <li><a href="https://drive.google.com/drive/folders/1snWjfEIl4poKZFCFocSapkorWUKdKRFX?usp=sharing" target="blank"><button class="btn hw-button">Short Assignments</button></a></li>
                 <li><a href="https://drive.google.com/drive/folders/1wzZiFmftN0aNXQ0V-TmEb8udfxbyWJR4?usp=sharing" target="blank"><button class="btn exam-review-button">Exam Review</button></a></li>
             </ul>
-        </footer>
+        </footer><hr>
+        <button id="btnScrollToTop" class="btn">Scroll To Top</button>
+        <script> 
+            BFSbtns = document.getElementsByClassName('BFS');
+                for (var i = 0; i < BFSbtns.length; i++) {
+                    BFSbtns[i].addEventListener("click", function () {
+                    document.getElementById('BFS').scrollIntoView();
+            });}
+
+            GTbtns = document.getElementsByClassName('GT');
+                for (var i = 0; i < GTbtns.length; i++) {
+                    GTbtns[i].addEventListener("click", function () {
+                    document.getElementById('GT').scrollIntoView();
+            });}
+
+            OOPbtns = document.getElementsByClassName('OOP');
+                for (var i = 0; i < GTbtns.length; i++) {
+                    OOPbtns[i].addEventListener("click", function () {
+                    document.getElementById('OOP').scrollIntoView();
+            });}
+        
+            const btnScrollToTop = document.querySelector('#btnScrollToTop');
+            btnScrollToTop.addEventListener("click", function() {
+                window.scrollTo(0, 0)
+            });
+        </script>
         <script src="prism.js"></script>
     </body>

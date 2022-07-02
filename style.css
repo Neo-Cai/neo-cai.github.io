@@ -13,11 +13,24 @@ font-family: 'BIZ UDPGothic', sans-serif;
 * {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    font-size: 100%
+}
+h1 {
+    font-size: 175%;
+}
+h2 {
+    font-size: 160%;
+}
+h3 {
+    font-size: 130%;
+}
+h4 {
+    font-size: 110%;
 }
 .nav ul {
     margin: 2.5%;
-    margin-left: -3.2em;
-    margin-bottom: -0.5em;
+    margin-left: -3.7%;
+    margin-bottom: -0.85%;
 }
 .nav li {
     display: inline-block;
@@ -41,21 +54,21 @@ font-family: 'BIZ UDPGothic', sans-serif;
     color: white;
 }
 
-.nav-email a {
+.nav-link a {
     color: rgb(2, 60, 2);
     text-decoration: none;
 }
-.nav-email a:hover {
+.nav-link a:hover {
     color: blue;
     background-color: transparent;
 }
 .nav {
     text-align: left;
-    font-size: 0.9em;
+    font-size: 90%;
     border-bottom: 2px solid rgb(2, 60, 2) ;
 }
 html, body { 
-    margin: 1in;
+    margin:6%;
     margin-top: 0in;
     padding: 0;
 }
@@ -109,17 +122,46 @@ html, body {
     color: rgb(129, 56, 255);
     background-color: rgba(101, 12, 246, 0.078);
 }
-.campus-map-img {
+.demo-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
     height: 50%;
 }
-.campus-demo {
+.video-demo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
+}
+.code-body {
+    display: block;
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+}
+
+.highlight-body {
+    display: block;
+    color: green;
+    padding: 1%;
+    border-radius: 5px;
+    background-color: rgba(14, 138, 70, 0.1); 
+}
+.deadalivecat-img {
+    display: block;
+    ;
+}
+.scroll-btn {
+    font-size: smaller;
+    color: rgb(213, 152, 10);
+    background-color: rgb(244, 238, 202);
+}
+#btnScrollToTop {
+    display: flex;
+    font-size: medium;
+    color: rgb(99, 99, 99);
+    background-color: rgba(50, 99, 72, 0);
+    width: 20%;
 }
