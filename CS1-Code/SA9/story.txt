@@ -1,0 +1,27 @@
+START| ACCEPT, DENY| You are doing your work on the Green when a strange person asks you to watch an enclosed wooden box while she goes to get coffee. She tells you there is a cat in it but you ABSOLUTELY cannot open the box. Do you a) accept the task or b) deny it?
+
+DENY| SEE_WHAT_HAPPENS, STUDY| You tell her you don't have the time. The person says it's alright and you watch as she asks another person who accepts the task. Do you a) see what actually happens to the box or b) do you keep studying?
+
+STUDY|| Realizing you have too much quantum physics to study, you decide to mind your own business. You never learn what was in the box... or do you?
+
+SEE_WHAT_HAPPENS| READ_IT, IGNORE_IT| Succumbing to your curiosity you decide to see what happens. The other person decides the open the box, you take a peak and see a super cute ginger cat. The person, reads the note, squeals in excitment and leaves with the cat. As they leave, the note falls to the ground. Do you a) read it or b) ignore it?
+
+READ_IT|| Like the stalker you are, you decide to read the note, it says "Hi, my name is Shrodinger, my ownder doesn't want me anymore so I am in your care..." Suddenly, you realize this was all based on the "curiosity killed a cat" thought experiment and you wonder if in another world you could have gotten a super cute cat. But then, you realize you already know and don't know the answer at the same time. YOU are Shrodinger's cat.
+
+IGNORE_IT|| Realizing you have too much quantum physics to study, you decide to mind your own business. You never learn what was in the box... or do you?
+
+ACCEPT| CAFE, OPEN_NOW, WAIT| Having accepted the task, the person generously gives you some money and you wait for the person to come back and continue doing your work. After about 30 minutes, you realize the person has not come back yet. Do you a) go to the nearby cafe to find her, b) open the box to check on the cat, or c) keep waiting?
+
+OPEN_NOW|| You open the box to see barely living cat. Along with the cat, you find a note that says, "Hi, my name is Shrodinger, my owner doesn't want me anymore so I am in your care. I hope you open my box in time. There is only so much air." Thankfully, you found the cat in time! You realize this was all based on the "curiosity killed a cat" thought experiment but before you think more of it, the cat meows a super cute meow and you take Shrodi home. You live happily with the Shrodi in your dorm and he snuggles with you while you study.
+
+WAIT| OPEN_WAIT, CLOSE_WAIT| After waiting another 30 minutes, you still don't see the woman but the box begins to make a noise. Do you decide to a) open the box or b) keep it closed?
+
+OPEN_WAIT|| You open the box to find nothing in it but a note that says, "Hi my name is Shrodinger the cat" Suddenly you realize that this was all based on the "curiosity killed a cat" thought experiment and you wonder if in another world, the state of the cat in the box was "existent." You find solace in the fact that at least the cat is not dead in this scenario but you wonder if there is a world in which the cat does exist. But then, you realize you already know and don't know the answer at the same time. YOU are Shrodinger's cat.
+
+CLOSE_WAIT|| You leave the box closed, a bit later. The woman returns and picks up the box and thanks you for taking care of "Shrodinger." Suddenly you realize that this was all based on the "curiosity killed a cat" thought experiment and you wonder if there really was a cat in the box. At the same time, you realize you already know and can't know the answer because your. There is congruently no cat and a cat and you have congruently waited and gone to the cafe and perhaps opened the box and not opened it... YOU are Shrodinger's cat.
+
+CAFE| OPEN_CAFE, CLOSE_CAFE| You carry the box with you and arrive at Starbucks having searched every other coffee location on campus but haven't found her yet. Suddenly whatever's inside the box starts tossing and turning and finally stops. Do you a) open the box or b) keep it closed?
+
+OPEN_CAFE|| You open the box to see a dead cat. Along with the cat, you find a note that says, "Hi, my name is Shrodinger, my owner doesn't want me anymore so I am in your care. I hope you open my box in time... There is only so much air." Unfortunately, you have taken too long, you take the box and you bury the cat in the graveyard behind foco. Eventually, after grieving, you realize that this was all based on the "curiosity killed a cat" thought experiment. You find solace in the idea that there is a world in which the state of the cat is "alive" but you also wonder how that state could have been achieved.
+
+CLOSE_CAFE|| You decide not to open the box and eventually call SNS to come pick up the box so they can figure out how to return it to its rightful owner. You never learn if there was a real cat in the box and if so, if it was dead or alive by the time you gave it away.
